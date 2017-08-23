@@ -36,7 +36,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     db.query('DELETE from todos WHERE id=?', [req.params.id], (err, results, fields) => {
         if (err) return res.status(400).send({ error: err.toString() });
-        res.status(200).send(results[0]);
+        res.status(200).send({ message: 'Successfully deleted item.' });
     })
 });
 
